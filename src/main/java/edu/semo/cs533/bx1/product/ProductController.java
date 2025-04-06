@@ -1,13 +1,14 @@
 package edu.semo.cs533.bx1.product;
 
 import java.util.List;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 
 @RestController
@@ -24,17 +25,20 @@ public class ProductController implements ProductApi {
     @Override
     @GetMapping(produces = "application/json")
     public ResponseEntity<List<Product>> list() {
-        var t = service.list();
-        return ResponseEntity.ok(t);
+        var list = service.getAllProducts();
+        return ResponseEntity.ok(list);
     }
 
     @Override
     @PostMapping
-    public ResponseEntity<Void> add(Product product) {
-        var result = service.add(product);
-        if (result == -1) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Product> add(Product product, UriComponentsBuilder uriBuilder) {
+        val saved = service.saveProduct(product);
+        var location = uriBuilder
+                .path("/products/{id}")
+                .buildAndExpand(saved.getId())
+                .toUri();
+
+        return ResponseEntity.created(location)
+                .body(saved);
     }
 }

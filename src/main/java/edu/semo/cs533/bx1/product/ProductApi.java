@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Tag(name = "Product", description = "The product API")
 public interface ProductApi {
@@ -26,5 +27,5 @@ public interface ProductApi {
             @ApiResponse(responseCode = "201", description = "successfully added a product"),
             @ApiResponse(responseCode = "409", description = "duplicate product")
     })
-    ResponseEntity<Void> add(@RequestBody Product product);
+    ResponseEntity<Product> add(@RequestBody Product product, UriComponentsBuilder uriBuilder);
 }
