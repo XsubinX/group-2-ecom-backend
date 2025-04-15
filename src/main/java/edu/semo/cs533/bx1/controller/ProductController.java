@@ -1,5 +1,8 @@
-package edu.semo.cs533.bx1.product;
+package edu.semo.cs533.bx1.controller;
 
+import edu.semo.cs533.bx1.api.ProductApi;
+import edu.semo.cs533.bx1.dao.Product;
+import edu.semo.cs533.bx1.service.ProductService;
 import java.util.List;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;

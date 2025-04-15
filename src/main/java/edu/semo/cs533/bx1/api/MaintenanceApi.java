@@ -1,4 +1,4 @@
-package edu.semo.cs533.bx1.maintenance;
+package edu.semo.cs533.bx1.api;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

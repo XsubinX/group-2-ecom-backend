@@ -1,5 +1,7 @@
-package edu.semo.cs533.bx1.maintenance;
+package edu.semo.cs533.bx1.controller;
 
+import edu.semo.cs533.bx1.api.MaintenanceApi;
+import edu.semo.cs533.bx1.service.MaintenanceService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,5 +1,6 @@
-package edu.semo.cs533.bx1.product;
+package edu.semo.cs533.bx1.api;
 
+import edu.semo.cs533.bx1.dao.Product;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
