@@ -79,6 +79,7 @@ public class MaintenanceService {
     }
 
     private void deleteAllRecords() {
+        shoppingCartRepository.deleteAll();
         productRepository.deleteAll();
         categoryRepository.deleteAll();
         userRepository.deleteAll();

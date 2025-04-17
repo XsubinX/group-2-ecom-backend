@@ -9,6 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +31,7 @@ public class ShoppingCart {
     private EcomUser user;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    private List<CartItem> items;
+    private List<CartItem> items = new ArrayList<>();
 
     public Void addToItems(CartItem cartItem) {
         this.items.add(cartItem);

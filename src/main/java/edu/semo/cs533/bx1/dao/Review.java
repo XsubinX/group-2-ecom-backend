@@ -1,5 +1,6 @@
 package edu.semo.cs533.bx1.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,14 +25,17 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private EcomUser user;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @JsonIgnore
     private Product product;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
+    @JsonIgnore
     private Order order;
 
     private int rating;

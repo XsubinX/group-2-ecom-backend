@@ -1,5 +1,6 @@
 package edu.semo.cs533.bx1.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,9 +32,11 @@ public class Product {
     private Category category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<OrderItem> orderItems;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<CartItem> cartItems;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
